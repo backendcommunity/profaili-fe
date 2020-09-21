@@ -23,11 +23,15 @@ export default {
 <style>
 * {
   font-family: "Montserrat", sans-serif;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 .e-container {
   width: 100%;
   padding: 0 120px;
   margin: 0;
+}
+.illustration {
+  width: 100%;
+  height: auto;
 }
 </style>

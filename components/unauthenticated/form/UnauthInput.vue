@@ -6,6 +6,10 @@
 <style lang="sass" scoped>
 div.unauth-input
   margin-bottom: .9rem
+  &.white
+    input
+      background-color: #fff
+      border-color: #acacac
   input
     border-radius: 7px
     background: #dedede
@@ -17,6 +21,9 @@ div.unauth-input
     width: 100%
     font-size: 1.3vw
     font-weight: 500
+    &.white
+      background-color: #fff
+      border-color: #acacac
     &:focus, &:active
       outline: none
       border-color: #8e8e8e

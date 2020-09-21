@@ -36,9 +36,6 @@ export default {
 .home
   *
     color: #041836
-  .illustration
-    width: 100%
-    height: auto
   .banner-text
     font-weight: 700
     font-size: 3.4vw
