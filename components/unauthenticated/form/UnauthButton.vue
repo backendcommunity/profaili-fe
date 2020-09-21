@@ -14,6 +14,6 @@
     font-weight: bold
     border: none
     text-align: center
-    margin-top: 10px
+    margin-top: 4vh
     padding: 10px 25px
 </style>

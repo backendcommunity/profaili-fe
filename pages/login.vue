@@ -1,7 +1,7 @@
 <template>
   <div class="e-container login">
     <div class="row">
-      <div class="col-md-6 pt-4">
+      <div class="col-md-6 content">
         <UnauthForm title="Hello, welcome back">
           <form class="mt-4">
             <UnauthInput class="white mb-4" placeholder="Email" />

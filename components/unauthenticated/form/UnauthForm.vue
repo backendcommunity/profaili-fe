@@ -22,5 +22,5 @@
     font:
       weight: bold
       size: 32px
-      color: #041836
+    color: #041836
 </style>

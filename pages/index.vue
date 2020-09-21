@@ -1,7 +1,7 @@
 <template>
   <div class="e-container home">
     <div class="row">
-      <div class="col-md-6 pt-4">
+      <div class="col-md-6 content">
         <h2 class="banner-text">Sync your online profile</h2>
         <p class="sub-text">Update your profile across multiple social networks at once with Profaili.</p>
         <form>

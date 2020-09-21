@@ -42,6 +42,7 @@
       align-items: center
     a
       margin: 0 20px
+      text-decoration: none
     .brand
       font-weight: bold
       font-size: 32px

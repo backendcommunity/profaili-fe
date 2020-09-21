@@ -20,7 +20,7 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 * {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
@@ -33,5 +33,8 @@ export default {
 .illustration {
   width: 100%;
   height: auto;
+}
+.content {
+  padding-top: 8vh
 }
 </style>
