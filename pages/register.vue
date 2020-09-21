@@ -1,5 +1,5 @@
 <template>
-  <div class="e-container login">
+  <div class="e-container auth">
     <div class="row">
       <div class="col-md-6 offset-md-3 content">
         <UnauthForm title="Hello, create an account">

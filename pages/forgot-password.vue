@@ -1,5 +1,5 @@
 <template>
-  <div class="e-container forgot-password">
+  <div class="e-container auth">
     <div class="row">
       <div class="col-md-6 content">
         <UnauthForm title="Forgot password?">
