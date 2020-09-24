@@ -45,6 +45,8 @@
     margin-right: 10px
 .marginTop
   margin-top: 3rem
+.title-h2
+  margin-bottom: 1rem
 </style>
 <script>
 export default {

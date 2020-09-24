@@ -16,7 +16,7 @@
             />
           </div>
           <div class="button-container">
-            <button class="add-button"><img :src="plus" />Add other accounts</button>
+            <nuxt-link to="/dashboard/add-account" class="add-button"><img :src="plus" />Add other accounts</nuxt-link>
           </div>
         </div>
       </div>

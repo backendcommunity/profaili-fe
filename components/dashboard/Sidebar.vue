@@ -43,6 +43,7 @@ export default {
       weight: bold
       size: 2vw
     margin-bottom: 2rem
+    text-decoration: none
     &.logo
       margin-bottom: 3rem
   img

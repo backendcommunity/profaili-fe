@@ -12,6 +12,7 @@
   border-radius: 7px
   flex-direction: column
   align-items: center
+  cursor: pointer
   justify-content: center
   p
     color: white

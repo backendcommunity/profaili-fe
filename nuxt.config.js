@@ -36,6 +36,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~plugins/vuejs-modal.js'
   ],
   /*
   ** Auto import components
