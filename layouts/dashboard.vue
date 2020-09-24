@@ -1,6 +1,51 @@
 <template>
-
+<div class="dashboard">
+  <Sidebar />
+  <div class="main-content">
+    <DashboardNav />
+    <Nuxt />
+  </div>
+</div>
 </template>
+<style lang="sass">
+*
+  box-sizing: border-box
+.main-content
+  margin-left: 5vw
+  h2
+    font-weight: 600
+    color: #333
+  .sub-text
+    font-weight: 600
+    color: #666
+.e-content
+  margin-top: 2rem
+.e-grid-row
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+  grid-auto-rows: minmax(150px, auto)
+  column-gap: 60px
+  row-gap: 30px
+  &.squared
+    grid-template-rows: minmax(200px, auto)
+    grid-auto-rows: minmax(150px, auto)
+.add-button
+  background: linear-gradient(180deg, #02C78C 0%, rgba(5, 83, 231, 0.35) 100%)
+  border: none
+    radius: 7px
+  text-transform: uppercase
+  font-weight: 700
+  color: white
+  padding: 10px 50px
+.button-container
+  display: flex
+  justify-content: center
+  margin-top: 3rem
+  img
+    margin-right: 10px
+.marginTop
+  margin-top: 3rem
+</style>
 <script>
 export default {
   head() {
