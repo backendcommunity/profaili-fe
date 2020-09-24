@@ -15,6 +15,7 @@
     color: #041F46
     display: inline-flex
     align-items: center
+    text-decoration: none
     img, .img-placeholder
       display: inline-block
       width: 35px

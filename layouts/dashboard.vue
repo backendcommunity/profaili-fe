@@ -17,7 +17,8 @@
     color: #333
   .sub-text
     font-weight: 600
-    color: #666
+    color: #777
+    font-size: 1.3rem
 .e-content
   margin-top: 2rem
 .e-grid-row
@@ -37,6 +38,10 @@
   font-weight: 700
   color: white
   padding: 10px 50px
+  text-decoration: none
+  &:hover
+    color: white
+    text-decoration: none
 .button-container
   display: flex
   justify-content: center
