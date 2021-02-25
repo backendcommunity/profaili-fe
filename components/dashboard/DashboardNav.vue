@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard-nav">
-    <nuxt-link to="#"><div class="img-placeholder"></div>Eric McWinNEr</nuxt-link>
+    <nuxt-link to="#"
+      ><div class="img-placeholder"></div>
+      {{ $auth.user.name }}</nuxt-link
+    >
   </div>
 </template>
 <style lang="sass" scoped>
@@ -9,7 +12,7 @@
   display: flex
   justify-content: flex-end
   align-items: center
-  padding: 3vh 10vw 
+  padding: 3vh 10vw
   a
     font-weight: 600
     color: #041F46

@@ -1,8 +1,20 @@
 <template>
   <div class="unauth-input">
-    <input v-bind="$attrs" />
+    <input
+      v-bind="$attrs"
+      :value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    />
   </div>
 </template>
+<script>
+export default {
+  inheritAttrs: false,
+  props: {
+    value: [String, Number],
+  },
+};
+</script>
 <style lang="sass" scoped>
 div.unauth-input
   margin-bottom: .9rem
@@ -17,7 +29,7 @@ div.unauth-input
     color: #333
     border: 2px solid transparent
     outline: none
-    display: block 
+    display: block
     width: 100%
     font-size: 1.3vw
     font-weight: 500

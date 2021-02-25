@@ -3,7 +3,18 @@
     <Nuxt />
   </div>
 </template>
-
+<script>
+export default {
+  computed: {
+    isAuthenticated() {
+      return this.$auth.loggedIn
+    },
+    user() {
+      return this.$auth.user
+    },
+  },
+}
+</script>
 <style>
 html {
   font-family:

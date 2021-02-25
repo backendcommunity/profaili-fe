@@ -3,14 +3,20 @@
     <div class="row">
       <div class="col-md-6 content">
         <h2 class="banner-text">Sync your online profile</h2>
-        <p class="sub-text">Update your profile across multiple social networks at once with Profaili.</p>
+        <p class="sub-text">
+          Update your profile across multiple social networks at once with
+          Profaili.
+        </p>
         <form>
           <UnauthInput placeholder="Name" />
           <UnauthInput placeholder="Email" />
           <UnauthInput placeholder="Password" />
           <UnauthButton>Get Started!</UnauthButton>
         </form>
-        <p class="sub-text mt-3">Already have an account? <b><nuxt-link to="/login">Login</nuxt-link></b></p>
+        <p class="sub-text mt-3">
+          Already have an account?
+          <b><nuxt-link to="/login">Login</nuxt-link></b>
+        </p>
       </div>
       <div class="col-md-6">
         <img class="illustration" :src="home" />
@@ -21,14 +27,16 @@
 </template>
 
 <script>
-import home from "~/assets/img/home.svg"
+import home from "~/assets/img/home.svg";
 export default {
+  middleware: ["auth"],
+  auth: false,
   layout: "unauthenticated",
-  data: function() {
+  data: function () {
     return {
-      home
-    }
-  }
+      home,
+    };
+  },
 };
 </script>
 
@@ -46,6 +54,4 @@ export default {
     line-height: 160%
     a
       text-decoration: underline
-
-
 </style>

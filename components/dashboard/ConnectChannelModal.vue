@@ -1,14 +1,33 @@
 <template>
   <div class="social-modal">
-    <h2>Connect {{ article }} {{ displayName }} Account</h2>
-    <p>{{ selectedAccount.text }}</p>
-    <button :style="{background: selectedAccount.theme}" class="connect-link">
-      <img :src="selectedAccount.icon" /> Connect
+    <h2>Connect {{ article }} {{ displayName }} Channel</h2>
+    <p>{{ selectedChannel.description }}</p>
+    <button :style="{ background: selectedChannel.theme }" class="connect-link">
+      <img :src="selectedChannel.icon" /> Connect
       {{ displayName }}
     </button>
     <span class="close">&times;</span>
   </div>
 </template>
+
+<script>
+import allAccounts from "~/common/allAccounts";
+import { correctArticle, sentenceCase } from "~/utils/helpers";
+export default {
+  name: "ConnectChannelModal",
+  props: {
+    selectedChannel: Object,
+  },
+  computed: {
+    article: function () {
+      return correctArticle(this.selectedChannel.title);
+    },
+    displayName: function () {
+      return sentenceCase(this.selectedChannel.title);
+    },
+  },
+};
+</script>
 <style lang="sass" scoped>
 .social-modal
   padding: 50px 30px
@@ -21,8 +40,8 @@
     font-size: 2rem
   h2
     font:
-      size: 1.75rem
-      weight: 600
+    size: 1.75rem
+    weight: 600
     color: #333
   p
     color: #666
@@ -44,21 +63,3 @@
       height: 24px
       margin-right: 1.5rem
 </style>
-<script>
-import allAccounts from "~/common/allAccounts";
-import { correctArticle, sentenceCase } from "~/utils/helpers";
-export default {
-  name: "ConnectAccountModal",
-  props: {
-    selectedAccount: Object
-  },
-  computed: {
-    article: function() {
-      return correctArticle(this.selectedAccount.name);
-    },
-    displayName: function() {
-      return sentenceCase(this.selectedAccount.name);
-    }
-  }
-};
-</script>

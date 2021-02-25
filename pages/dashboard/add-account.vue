@@ -9,11 +9,11 @@
           </p>
           <div class="e-grid-row marginTop">
             <SocialCard
-              @click.native="showConnectModal(account)"
-              v-for="(account, index) in accounts"
-              :key="`account-${index}`"
-              :icon="account.icon"
-              :name="account.name"
+              @click.native="showConnectModal(channel)"
+              v-for="(channel, index) in channels"
+              :key="`channel-${index}`"
+              :icon="channel.icon"
+              :name="channel.title"
             />
           </div>
         </div>
@@ -22,19 +22,41 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import accounts from "../../common/allAccounts";
-import ConnectAccountModal from "~/components/dashboard/ConnectAccountModal"
+import ConnectChannelModal from "~/components/dashboard/ConnectChannelModal";
 export default {
   layout: "dashboard",
-  data: function() {
+  async asyncData({ store }) {
+    try {
+      const getChannels = store.getters["channels/getChannels"];
+      const channels = getChannels();
+      if (!channels.length) {
+        // const data = {}
+        // data.page = query.page ? query.page : 1
+        // data.count = 22
+        await store.dispatch("channels/all");
+      }
+    } catch (error) {
+      console.log(error, "error");
+    }
+  },
+  data: function () {
     return {
-      accounts
+      accounts,
     };
   },
+  computed: {
+    ...mapState({
+      channels: (state) => {
+        return [...state.channels.channels];
+      },
+    }),
+  },
   methods: {
-    showConnectModal: function(selectedAccount) {
-      this.$modal.show(ConnectAccountModal, {selectedAccount})
-    }
-  }
+    showConnectModal: function (selectedChannel) {
+      this.$modal.show(ConnectChannelModal, { selectedChannel });
+    },
+  },
 };
 </script>
