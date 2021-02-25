@@ -1,8 +1,8 @@
 <template>
-<div class="social-card">
-  <img :src="icon" />
-  <p>{{name}}</p>
-</div>
+  <div class="social-card">
+    <img :src="icon" />
+    <p>{{ name }}</p>
+  </div>
 </template>
 <style lang="sass">
 .social-card
@@ -18,15 +18,12 @@
     color: white
     font-weight: 600
     font-size: 1.4rem
-  img 
+  img
     margin-bottom: 1rem
     width: 2.6rem
 </style>
 <script>
-  export default {
-    props: [
-      'icon',
-      'name'
-    ]
-  }
+export default {
+  props: ["icon", "name"],
+};
 </script>

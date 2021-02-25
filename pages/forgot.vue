@@ -3,8 +3,13 @@
     <div class="row">
       <div class="col-md-6 content">
         <UnauthForm title="Forgot password?">
-          <form class="mt-4">
-            <UnauthInput class="white mb-4" placeholder="Email" />
+          <form class="mt-4" @submit.prevent="recoverPassword">
+            <UnauthInput
+              v-model="user.email"
+              type="email"
+              class="white mb-4"
+              placeholder="Email"
+            />
             <UnauthButton>Recover Password</UnauthButton>
             <p class="mt-4">
               New to Profaili?
@@ -22,11 +27,20 @@
 <script>
 import forgotPassword from "~/assets/img/forgotpassword.svg";
 export default {
+  middleware: ["auth"],
+  auth: false,
   layout: "unauthenticated",
-  data: function() {
+  data: function () {
     return {
-      forgotPassword
+      forgotPassword,
+      user: {},
     };
-  }
+  },
+
+  methods: {
+    async recoverPassword() {
+      return await this.$store.dispatch("user/recoverPassword", this.user);
+    },
+  },
 };
 </script>
