@@ -3,6 +3,9 @@ export default {
   env: {
     API_URL: process.env.API_URL,
   },
+
+  target: 'static',
+  ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Profaili',
