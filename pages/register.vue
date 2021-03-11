@@ -30,23 +30,24 @@
         </UnauthForm>
       </div>
     </div>
+    <UnauthFooter />
   </div>
 </template>
 <script>
 export default {
-  middleware: ["auth"],
-  auth: "guest",
-  layout: "unauthenticated",
+  layout: 'unauthenticated',
+  middleware: ['auth'],
+  auth: 'guest',
   data() {
     return {
       user: {},
-    };
+    }
   },
   methods: {
     async register() {
-      await this.$store.dispatch("user/register", this.user);
+      await this.$store.dispatch('user/register', this.user)
     },
   },
-};
+}
 </script>
 <style lang="sass"></style>

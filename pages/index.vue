@@ -27,17 +27,17 @@
 </template>
 
 <script>
-import home from "~/assets/img/home.svg";
+import home from '~/assets/img/home.svg'
 export default {
-  middleware: ["auth"],
+  layout: 'unauthenticated',
+  middleware: ['auth'],
   auth: false,
-  layout: "unauthenticated",
-  data: function () {
+  data() {
     return {
       home,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="sass" scoped>

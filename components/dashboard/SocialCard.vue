@@ -4,6 +4,20 @@
     <p>{{ name }}</p>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    icon: {
+      type: String,
+      default: '',
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+  },
+}
+</script>
 <style lang="sass">
 .social-card
   display: flex
@@ -22,8 +36,3 @@
     margin-bottom: 1rem
     width: 2.6rem
 </style>
-<script>
-export default {
-  props: ["icon", "name"],
-};
-</script>

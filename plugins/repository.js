@@ -1,5 +1,5 @@
-import createRepository from "~/repositories/BaseRepository";
+import createRepository from '~/repositories/BaseRepository'
 
 export default (ctx, inject) => {
-  inject("repositories", createRepository(ctx.$axios));
-};
+  inject('repositories', createRepository(ctx.$axios))
+}

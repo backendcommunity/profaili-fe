@@ -29,40 +29,41 @@
         <img class="illustration" :src="login" @click="refresh" />
       </div>
     </div>
+    <UnauthFooter />
   </div>
 </template>
 <script>
-import login from "~/assets/img/login.svg";
+import login from '~/assets/img/login.svg'
 export default {
-  layout: "unauthenticated",
-  data: function () {
+  layout: 'unauthenticated',
+  data() {
     return {
       login,
       user: {
-        password: "",
-        email: "",
+        password: '',
+        email: '',
       },
-    };
+    }
   },
 
   methods: {
     refresh() {
-      console.log("here");
-      this.$auth.refreshTokens();
+      // console.log('here')
+      this.$auth.refreshTokens()
     },
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith("local", {
+        const response = await this.$auth.loginWith('local', {
           data: this.user,
-        });
+        })
         // await this.$auth.setUserToken(response.data.token);
-        this.$auth.setUser(response.data.user);
+        this.$auth.setUser(response.data.user)
       } catch (err) {
-        console.log(err);
+        // console.log(err)
       }
     },
   },
-};
+}
 </script>
 <style lang="sass">
 .auth

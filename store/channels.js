@@ -1,44 +1,44 @@
 export const state = () => ({
   channels: [],
-  connected_channels: []
-});
+  connected_channels: [],
+})
 
 export const getters = {
-  getChannels: state => () => {
-    return state.channels;
+  getChannels: (state) => () => {
+    return state.channels
   },
-  getConnectedChannels: state => () => {
-    return state.connected_channels;
-  }
-};
+  getConnectedChannels: (state) => () => {
+    return state.connected_channels
+  },
+}
 
 export const mutations = {
   STORE_CHANNELS(state, channels) {
-    state.channels = channels;
+    state.channels = channels
   },
   STORE_CONNECTED_CHANNELS(state, channels) {
-    state.connected_channels = channels;
-  }
-};
+    state.connected_channels = channels
+  },
+}
 
 export const actions = {
   all({ dispatch, commit }) {
-    return this.$repositories.channel.index().then(data => {
-      const { success, channels } = data;
+    return this.$repositories.channel.index().then((data) => {
+      const { success, channels } = data
       if (success) {
-        commit("STORE_CHANNELS", channels);
+        commit('STORE_CHANNELS', channels)
       }
-      return data;
-    });
+      return data
+    })
   },
 
   connectedChannels({ dispatch, commit }) {
-    return this.$repositories.channel.connected().then(data => {
-      const { success, channels } = data;
+    return this.$repositories.channel.connected().then((data) => {
+      const { success, channels } = data
       if (success) {
-        commit("STORE_CONNECTED_CHANNELS", channels);
+        commit('STORE_CONNECTED_CHANNELS', channels)
       }
-      return data;
-    });
-  }
-};
+      return data
+    })
+  },
+}

@@ -22,25 +22,26 @@
         <img class="illustration" :src="forgotPassword" />
       </div>
     </div>
+    <UnauthFooter />
   </div>
 </template>
 <script>
-import forgotPassword from "~/assets/img/forgotpassword.svg";
+import forgotPassword from '~/assets/img/forgotpassword.svg'
 export default {
-  middleware: ["auth"],
+  layout: 'unauthenticated',
+  middleware: ['auth'],
   auth: false,
-  layout: "unauthenticated",
-  data: function () {
+  data() {
     return {
       forgotPassword,
       user: {},
-    };
+    }
   },
 
   methods: {
     async recoverPassword() {
-      return await this.$store.dispatch("user/recoverPassword", this.user);
+      return await this.$store.dispatch('user/recoverPassword', this.user)
     },
   },
-};
+}
 </script>

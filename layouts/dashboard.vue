@@ -1,12 +1,28 @@
 <template>
-<div class="dashboard">
-  <Sidebar />
-  <div class="main-content">
-    <DashboardNav />
-    <Nuxt />
+  <div class="dashboard">
+    <Sidebar />
+    <div class="main-content">
+      <DashboardNav />
+      <Nuxt />
+    </div>
   </div>
-</div>
 </template>
+<script>
+export default {
+  head() {
+    return {
+      title: process.env.APP_NAME || 'Profaili',
+      link: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap',
+        },
+      ],
+    }
+  },
+}
+</script>
 <style lang="sass">
 *
   box-sizing: border-box
@@ -33,7 +49,7 @@
 .add-button
   background: linear-gradient(180deg, #02C78C 0%, rgba(5, 83, 231, 0.35) 100%)
   border: none
-    radius: 7px
+  radius: 7px
   text-transform: uppercase
   font-weight: 700
   color: white
@@ -53,19 +69,3 @@
 .title-h2
   margin-bottom: 1rem
 </style>
-<script>
-export default {
-  head() {
-    return {
-      title: process.env.APP_NAME || "Profaili",
-      link: [
-        {
-          rel: "stylesheet",
-          href:
-            "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        }
-      ]
-    };
-  }
-};
-</script>

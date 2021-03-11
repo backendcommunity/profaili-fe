@@ -3,7 +3,7 @@
     <input
       v-bind="$attrs"
       :value="value"
-      v-on:input="$emit('input', $event.target.value)"
+      @input="$emit('input', $event.target.value)"
     />
   </div>
 </template>
@@ -11,9 +11,12 @@
 export default {
   inheritAttrs: false,
   props: {
-    value: [String, Number],
+    value: {
+      type: [String, Number],
+      default: '',
+    },
   },
-};
+}
 </script>
 <style lang="sass" scoped>
 div.unauth-input

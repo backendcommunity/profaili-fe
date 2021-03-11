@@ -27,43 +27,43 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import initialAccounts from "../../common/initialAccounts";
-import plus from "~/assets/icons/plus.svg";
+import { mapState } from 'vuex'
+import initialAccounts from '../../common/initialAccounts'
+import plus from '~/assets/icons/plus.svg'
 export default {
-  middleware: ["auth"],
-  layout: "dashboard",
-  data: function () {
-    return {
-      initialAccounts,
-      plus,
-    };
-  },
+  layout: 'dashboard',
+  middleware: ['auth'],
 
   async asyncData({ store }) {
     try {
-      const getChannels = store.getters["channels/getConnectedChannels"];
-      const channels = getChannels();
+      const getChannels = store.getters['channels/getConnectedChannels']
+      const channels = getChannels()
 
       if (!channels.length) {
         // const data = {}
         // data.page = query.page ? query.page : 1
         // data.count = 22
-        await store.dispatch("channels/connectedChannels");
+        await store.dispatch('channels/connectedChannels')
       }
     } catch (error) {
-      console.log(error, "error");
+      // console.log(error, 'error')
+    }
+  },
+  data() {
+    return {
+      initialAccounts,
+      plus,
     }
   },
 
   computed: {
     ...mapState({
       channels: (state) => {
-        return [...state.channels.connected_channels];
+        return [...state.channels.connected_channels]
       },
     }),
   },
-};
+}
 </script>
 <style lang="sass" scoped>
 h2

@@ -8,21 +8,21 @@
 export default {
   head() {
     return {
-      title: process.env.APP_NAME || "Profaili",
+      title: process.env.APP_NAME || 'Profaili',
       link: [
         {
-          rel: "stylesheet",
+          rel: 'stylesheet',
           href:
-            "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        }
-      ]
-    };
-  }
-};
+            'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap',
+        },
+      ],
+    }
+  },
+}
 </script>
 <style lang="scss">
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 .e-container {
@@ -35,6 +35,6 @@ export default {
   height: auto;
 }
 .content {
-  padding-top: 8vh
+  padding-top: 8vh;
 }
 </style>
