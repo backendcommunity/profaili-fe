@@ -11,22 +11,25 @@
 </template>
 
 <script>
-import allAccounts from "~/common/allAccounts";
-import { correctArticle, sentenceCase } from "~/utils/helpers";
+// import allAccounts from '~/common/allAccounts'
+import { correctArticle, sentenceCase } from '~/utils/helpers'
 export default {
-  name: "ConnectChannelModal",
+  name: 'ConnectChannelModal',
   props: {
-    selectedChannel: Object,
+    selectedChannel: {
+      type: Object,
+      default: () => {},
+    },
   },
   computed: {
-    article: function () {
-      return correctArticle(this.selectedChannel.title);
+    article() {
+      return correctArticle(this.selectedChannel.title)
     },
-    displayName: function () {
-      return sentenceCase(this.selectedChannel.title);
+    displayName() {
+      return sentenceCase(this.selectedChannel.title)
     },
   },
-};
+}
 </script>
 <style lang="sass" scoped>
 .social-modal
@@ -39,8 +42,7 @@ export default {
     color: #555555
     font-size: 2rem
   h2
-    font:
-    size: 1.75rem
+    font-size: 1.75rem
     weight: 600
     color: #333
   p

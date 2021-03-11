@@ -1,7 +1,7 @@
-import UserRepository from "~/repositories/UserRepository";
-import ChannelRepository from "~/repositories/ChannelRepository";
+import UserRepository from '~/repositories/UserRepository'
+import ChannelRepository from '~/repositories/ChannelRepository'
 
-export default $axios => ({
+export default ($axios) => ({
   user: UserRepository($axios),
-  channel: ChannelRepository($axios)
-});
+  channel: ChannelRepository($axios),
+})

@@ -3,7 +3,7 @@
     <div class="e-container">
       <div class="nav-links">
         <div class="left">
-          <nuxt-link class="brand" to="/">{{name}}</nuxt-link>
+          <nuxt-link class="brand" to="/">{{ name }}</nuxt-link>
           <nuxt-link to="/about">About</nuxt-link>
           <nuxt-link to="/pricing">Pricing</nuxt-link>
           <nuxt-link to="/customers">Customers</nuxt-link>
@@ -17,16 +17,16 @@
   </div>
 </template>
 <script>
-  export default {
-    data: function() {
-      return {
-        name: process.env.APP_NAME || "Profaili"
-      }
+export default {
+  data() {
+    return {
+      name: process.env.APP_NAME || 'Profaili',
     }
-  }
-</script> 
+  },
+}
+</script>
 <style lang="sass" scoped>
-.nav 
+.nav
   padding: 40px 0 20px
   *
     color: #041836
@@ -52,7 +52,7 @@
     .button
       display: inline-block
       border: none
-        radius: 5px
+      radius: 5px
       background-color: #92E3A9
       padding: 7px 12px
 </style>

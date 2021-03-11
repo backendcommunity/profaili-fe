@@ -1,118 +1,97 @@
-require("dotenv").config();
+require('dotenv').config()
 export default {
   env: {
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
   },
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
-  target: "server",
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    // title: process.env.npm_package_name || 'Profaili',
-    title: "Profaili",
+    title: 'Profaili',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: process.env.npm_package_description || ""
-      }
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*
-   ** Global CSS
-   */
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
-  loading: { color: "#92E3A9", height: "5px" },
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
-   */
-  plugins: ["~plugins/vuejs-modal.js", "~plugins/repository.js"],
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
-  components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://bootstrap-vue.js.org
-    "bootstrap-vue/nuxt",
-    "@nuxtjs/axios",
-    "@nuxtjs/auth-next"
+  loading: { color: '#92E3A9', height: '5px' },
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  plugins: ['~plugins/vuejs-modal.js', '~plugins/repository.js'],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: [
+    '~/components',
+    { path: '~/components/unauthenticated/form', prefix: '' },
+    { path: '~/components/unauthenticated', prefix: '' },
+    { path: '~/components/dashboard', prefix: '' },
+    { path: '~/components/', prefix: '' },
   ],
 
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+  ],
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
+  modules: [
+    // https://go.nuxtjs.dev/bootstrap
+    'bootstrap-vue/nuxt',
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
+  ],
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: process.env.API_URL || "https://profaili-api.herokuapp.com/api/v1"
+    baseURL: process.env.API_URL || 'https://profaili-api.herokuapp.com/api/v1',
   },
 
   router: {
-    middleware: ["auth"]
+    middleware: ['auth'],
   },
 
   auth: {
     redirect: {
-      login: "/login",
+      login: '/login',
       // logout: "/logout",
-      home: "/dashboard"
+      home: '/dashboard',
     },
     strategies: {
       local: {
-        scheme: "refresh",
+        scheme: 'refresh',
         token: {
-          property: "token",
+          property: 'token',
           required: true,
-          type: "Bearer",
-          maxAge: 5
+          type: 'Bearer',
+          maxAge: 5,
         },
         refreshToken: {
-          property: "token",
-          data: "token",
+          property: 'token',
+          data: 'token',
           maxAge: 60 * 60 * 24 * 30,
-          tokenRequired: true
+          tokenRequired: true,
         },
         endpoints: {
-          login: { url: "auth/login", method: "post" },
-          logout: { url: "/auth/logout", method: "post" },
-          user: { url: "/user", method: "get" },
-          refresh: { url: "auth/refresh", method: "post" }
+          login: { url: 'auth/login', method: 'post' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/user', method: 'get' },
+          refresh: { url: 'auth/refresh', method: 'post' },
         },
 
         user: {
-          property: "user",
-          autoFetch: true
+          property: 'user',
+          autoFetch: true,
         },
-        autoLogout: false
-      }
-    }
+        autoLogout: false,
+      },
+    },
   },
 
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
-  build: {}
-};
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {},
+}
