@@ -11,8 +11,8 @@
             <SocialCard
               v-for="(channel, index) in channels"
               :key="`channel-${index}`"
-              :icon="channel.icon"
               :name="channel.title"
+              :is-connected="isConnected(channel.id)"
               @click.native="showConnectModal(channel)"
             />
           </div>
@@ -22,8 +22,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import accounts from '../../common/allAccounts'
+import { mapState, mapGetters } from 'vuex'
 import ConnectChannelModal from '~/components/dashboard/ConnectChannelModal'
 export default {
   layout: 'dashboard',
@@ -32,18 +31,17 @@ export default {
       const getChannels = store.getters['channels/getChannels']
       const channels = getChannels()
       if (!channels.length) {
-        // const data = {}
-        // data.page = query.page ? query.page : 1
-        // data.count = 22
         await store.dispatch('channels/all')
+      }
+      const getConnectedChannels =
+        store.getters['channels/getConnectedChannels']
+      const connectedChannels = getConnectedChannels()
+
+      if (!connectedChannels.length) {
+        await store.dispatch('channels/connectedChannels')
       }
     } catch (error) {
       // console.log(error, 'error')
-    }
-  },
-  data() {
-    return {
-      accounts,
     }
   },
   computed: {
@@ -52,9 +50,17 @@ export default {
         return [...state.channels.channels]
       },
     }),
+
+    ...mapGetters({
+      findConnectedChannel: ['channels/findConnectedChannel'],
+    }),
   },
   methods: {
+    isConnected(id) {
+      return !!this.findConnectedChannel(id)
+    },
     showConnectModal(selectedChannel) {
+      selectedChannel.isConnected = this.isConnected(selectedChannel.id)
       this.$modal.show(ConnectChannelModal, { selectedChannel })
     },
   },

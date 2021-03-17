@@ -10,6 +10,11 @@ export const getters = {
   getConnectedChannels: (state) => () => {
     return state.connected_channels
   },
+  findConnectedChannel: (state) => (id) => {
+    return state.connected_channels.find((channel) => {
+      if (channel.id === id) return channel
+    })
+  },
 }
 
 export const mutations = {
@@ -39,6 +44,15 @@ export const actions = {
         commit('STORE_CONNECTED_CHANNELS', channels)
       }
       return data
+    })
+  },
+  connect({ dispatch, commit }, data) {
+    return this.$repositories.channel.connect(data).then((data) => {
+      const { success } = data
+      if (success) {
+        return data
+      }
+      return false
     })
   },
 }
