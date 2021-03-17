@@ -1,19 +1,34 @@
 <template>
-  <div class="social-card">
-    <img :src="icon" />
+  <div :class="[{ disabledDiv: isConnected }, 'social-card']">
+    <img :src="iconFinder" />
     <p>{{ name }}</p>
   </div>
 </template>
 <script>
+import accounts from '../../common/allAccounts'
 export default {
   props: {
-    icon: {
-      type: String,
-      default: '',
-    },
     name: {
       type: String,
       default: '',
+    },
+    isConnected: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  computed: {
+    iconFinder() {
+      const account = accounts.find((account) => {
+        if (account.name === this.name) {
+          return account
+        }
+      })
+      if (account) {
+        return account.icon
+      }
+      return ''
     },
   },
 }
@@ -35,4 +50,8 @@ export default {
   img
     margin-bottom: 1rem
     width: 2.6rem
+
+.disabledDiv
+  pointer-events: none
+  opacity: 0.4
 </style>

@@ -2,16 +2,20 @@
   <div class="social-modal">
     <h2>Connect {{ article }} {{ displayName }} Channel</h2>
     <p>{{ selectedChannel.description }}</p>
-    <button :style="{ background: selectedChannel.theme }" class="connect-link">
-      <img :src="selectedChannel.icon" /> Connect
+    <b-button
+      :style="{ background: selectedChannel.theme }"
+      class="connect-link"
+      @click.prevent="connect"
+    >
+      <img :src="iconFinder" /> Connect
       {{ displayName }}
-    </button>
+    </b-button>
     <span class="close">&times;</span>
   </div>
 </template>
 
 <script>
-// import allAccounts from '~/common/allAccounts'
+import accounts from '../../common/allAccounts'
 import { correctArticle, sentenceCase } from '~/utils/helpers'
 export default {
   name: 'ConnectChannelModal',
@@ -27,6 +31,33 @@ export default {
     },
     displayName() {
       return sentenceCase(this.selectedChannel.title)
+    },
+
+    iconFinder() {
+      const account = accounts.find((account) => {
+        if (account.name === this.selectedChannel.title) {
+          return account
+        }
+      })
+      if (account) {
+        return account.icon
+      }
+      return ''
+    },
+  },
+  methods: {
+    getURL() {
+      return !this.selectedChannel.isConnected
+        ? `https://github.com/login/oauth/authorize?client_id=14235e0e35ebb82adc8a&allow_signup=true&scope=user&state=${this.$auth.user.id}_${this.selectedChannel.id}`
+        : ''
+    },
+    connect() {
+      if (!this.selectedChannel.isConnected)
+        window.open(
+          this.getURL(),
+          'win',
+          'width=800,height=400,screenX=200,screenY=200'
+        )
     },
   },
 }

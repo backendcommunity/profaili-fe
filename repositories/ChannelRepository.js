@@ -31,4 +31,10 @@ export default ($axios) => ({
       .then((response) => response.data)
       .catch((error) => Promise.reject(error.response))
   },
+  connect(data) {
+    return $axios
+      .post(`${resource}/connect`, data)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error.response))
+  },
 })
