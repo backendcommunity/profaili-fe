@@ -48,7 +48,7 @@ export default {
   methods: {
     getURL() {
       return !this.selectedChannel.isConnected
-        ? `https://github.com/login/oauth/authorize?client_id=14235e0e35ebb82adc8a&allow_signup=true&scope=user&state=${this.$auth.user.id}_${this.selectedChannel.id}`
+        ? `${this.selectedChannel.client_url}&state=${this.$auth.user.id}_${this.selectedChannel.id}` // `https://github.com/login/oauth/authorize?client_id=14235e0e35ebb82adc8a&allow_signup=true&scope=user&state=${this.$auth.user.id}_${this.selectedChannel.id}`
         : ''
     },
     connect() {
