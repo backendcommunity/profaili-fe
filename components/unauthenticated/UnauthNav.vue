@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      name: process.env.APP_NAME || 'Profaili',
+      name: process.env.APP_NAME || 'Profaily',
     }
   },
 }

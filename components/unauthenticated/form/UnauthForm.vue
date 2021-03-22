@@ -1,5 +1,5 @@
 <template>
-  <div class="unauth-form">
+  <div :class="{ 'unauth-form': addstyle }">
     <h2 v-if="title">{{ title }}</h2>
     <slot></slot>
   </div>
@@ -10,6 +10,10 @@ export default {
     title: {
       type: String,
       default: '',
+    },
+    addstyle: {
+      type: Boolean,
+      default: true,
     },
   },
 }

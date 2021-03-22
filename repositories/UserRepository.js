@@ -19,7 +19,7 @@ export default ($axios) => ({
     return $axios
       .post(`/auth/register`, payload)
       .then((response) => response.data)
-      .catch((error) => Promise.reject(error.response))
+      .catch((error) => Promise.resolve(error.response))
   },
 
   resetPassword(payload) {

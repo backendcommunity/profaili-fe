@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-6 content">
         <UnauthForm title="Hello, welcome back">
+          <div class="error">{{ error_msg }}</div>
           <form class="mt-4" @submit.prevent="userLogin">
             <UnauthInput
               v-model="user.email"
@@ -26,7 +27,7 @@
         </UnauthForm>
       </div>
       <div class="col-md-6">
-        <img class="illustration" :src="login" @click="refresh" />
+        <img class="illustration" :src="login" />
       </div>
     </div>
     <UnauthFooter />
@@ -39,6 +40,7 @@ export default {
   data() {
     return {
       login,
+      error_msg: '',
       user: {
         password: '',
         email: '',
@@ -56,10 +58,11 @@ export default {
         const response = await this.$auth.loginWith('local', {
           data: this.user,
         })
-        // await this.$auth.setUserToken(response.data.token);
         this.$auth.setUser(response.data.user)
       } catch (err) {
-        // console.log(err)
+        if (err.response?.data) {
+          this.error_msg = 'Password/email combination is incorrect'
+        }
       }
     },
   },
@@ -74,4 +77,9 @@ export default {
     color: #041836
     font-weight: 600
     text-decoration: underline
+
+.error
+  color: red
+  text-align: center
+  margin-top: 2em
 </style>

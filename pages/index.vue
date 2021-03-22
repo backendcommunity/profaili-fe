@@ -7,12 +7,7 @@
           Update your profile across multiple social networks at once with
           Profaili.
         </p>
-        <form>
-          <UnauthInput placeholder="Name" />
-          <UnauthInput placeholder="Email" />
-          <UnauthInput placeholder="Password" />
-          <UnauthButton>Get Started!</UnauthButton>
-        </form>
+        <Register :addstyle="false" title="" btntitle="Get Started!" />
         <p class="sub-text mt-3">
           Already have an account?
           <b><nuxt-link to="/login">Login</nuxt-link></b>
