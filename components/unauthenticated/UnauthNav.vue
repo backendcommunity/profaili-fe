@@ -4,13 +4,13 @@
       <div class="nav-links">
         <div class="left">
           <nuxt-link class="brand" to="/">{{ name }}</nuxt-link>
-          <nuxt-link to="/about">About</nuxt-link>
-          <nuxt-link to="/pricing">Pricing</nuxt-link>
-          <nuxt-link to="/customers">Customers</nuxt-link>
+          <nuxt-link to="/">About</nuxt-link>
+          <nuxt-link to="/">Pricing</nuxt-link>
+          <nuxt-link to="/">Customers</nuxt-link>
         </div>
         <div class="right">
-          <nuxt-link to="/login">Login</nuxt-link>
-          <nuxt-link to="/register" class="button">Get Started</nuxt-link>
+          <nuxt-link to="/">Login</nuxt-link>
+          <nuxt-link to="/" class="button">Get Started</nuxt-link>
         </div>
       </div>
     </div>
