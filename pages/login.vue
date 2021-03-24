@@ -1,7 +1,7 @@
 <template>
-  <div class="e-container auth">
-    <div class="row">
-      <div class="col-md-6 content">
+  <b-container fluid class="pl-md-4 pr-md-5 auth">
+    <b-row class="justify-content-between">
+      <b-col sm="12" md="6" class="content">
         <UnauthForm title="Hello, welcome back">
           <div class="error">{{ error_msg }}</div>
           <form class="mt-4" @submit.prevent="userLogin">
@@ -25,13 +25,13 @@
             </p>
           </form>
         </UnauthForm>
-      </div>
-      <div class="col-md-6">
+      </b-col>
+      <b-col sm="12" md="5">
         <img class="illustration" :src="login" />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
     <UnauthFooter />
-  </div>
+  </b-container>
 </template>
 <script>
 import login from '~/assets/img/login.svg'

@@ -1,11 +1,11 @@
 <template>
-  <div class="e-container home">
-    <div class="row">
+  <b-container fluid class="home">
+    <div class="row justify-content-between">
       <div class="col-md-6 content">
         <h2 class="banner-text">Sync your online profile</h2>
         <p class="sub-text">
           Update your profile across multiple social networks at once with
-          Profaili.
+          Profaily.
         </p>
         <Register :addstyle="false" title="" btntitle="Get Started!" />
         <p class="sub-text mt-3">
@@ -13,12 +13,14 @@
           <b><nuxt-link to="/login">Login</nuxt-link></b>
         </p>
       </div>
-      <div class="col-md-6">
-        <img class="illustration" :src="home" />
+      <div class="col-md-5">
+        <div class="row justify-content-center">
+          <img class="illustration" :src="home" />
+        </div>
       </div>
     </div>
     <UnauthFooter />
-  </div>
+  </b-container>
 </template>
 
 <script>
