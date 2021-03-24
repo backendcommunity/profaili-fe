@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <b-container fluid class="pr-md-4 pl-md-5">
     <UnauthNav />
     <Nuxt />
-  </div>
+  </b-container>
 </template>
 <script>
 export default {

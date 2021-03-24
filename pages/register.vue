@@ -1,15 +1,15 @@
 <template>
-  <div class="e-container auth">
-    <div class="row">
-      <div class="col-md-6 content"><Register /></div>
-      <div class="col-md-6">
+  <b-container fluid class="pl-md-4 pr-md-5 auth">
+    <b-row class="justify-content-between">
+      <b-col sm="12" md="6" class="content"><Register /></b-col>
+      <b-col sm="12" md="5">
         <img class="illustration" :src="login" />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
     <div class="clearfix">
       <UnauthFooter />
     </div>
-  </div>
+  </b-container>
 </template>
 <script>
 import login from '~/assets/img/login.svg'
