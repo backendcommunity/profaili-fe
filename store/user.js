@@ -25,6 +25,20 @@ export const actions = {
     })
   },
 
+  async login({ dispatch, commit }, data) {
+    try {
+      const response = await this.$auth.loginWith('local', {
+        data,
+      })
+      this.$auth.setUser(response.data.user)
+      return Promise.resolve(response.data.user)
+    } catch (err) {
+      if (err.response?.data) {
+        return Promise.reject(err.response)
+      }
+    }
+  },
+
   recoverPassword({ dispatch, commit }, form) {
     return this.$repositories.user.recoverPassword(form).then((data) => {
       const { success } = data
