@@ -7,10 +7,10 @@
           Update your profile across multiple social networks at once with
           Profaily.
         </p>
-        <Register :addstyle="false" title="" btntitle="Get Started!" />
+        <Register :addstyle="false" title="" btntitle="Join our waiting list" />
         <p class="sub-text mt-3">
           Already have an account?
-          <b><nuxt-link to="/login">Login</nuxt-link></b>
+          <b><nuxt-link to="#">Login</nuxt-link></b>
         </p>
       </div>
       <div class="col-md-5">
