@@ -76,12 +76,10 @@ export default {
       //   }
       //   this.errors = o
       // }
-
       if (this.validateEmail(this.user.email)) {
         this.suscribeNewsletter()
       } else this.errors.email = 'Enter a valid email'
     },
-
     suscribeNewsletter() {
       this.$refs.form.submit()
     },

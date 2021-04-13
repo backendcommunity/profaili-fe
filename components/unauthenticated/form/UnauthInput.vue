@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'Input',
   inheritAttrs: false,
   props: {
     value: {

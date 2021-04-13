@@ -1,7 +1,7 @@
 <template>
-  <div class="e-container auth">
-    <div class="row">
-      <div class="col-md-6 content">
+  <b-container fluid class="pl-md-4 pr-md-5 auth">
+    <b-row class="justify-content-between">
+      <b-col sm="12" md="6" class="content">
         <UnauthForm title="Reset password">
           <form class="mt-4" @submit.prevent="reset">
             <UnauthInput
@@ -23,13 +23,13 @@
             </p>
           </form>
         </UnauthForm>
-      </div>
-      <div class="col-md-6">
+      </b-col>
+      <b-col md="5" sm="12">
         <img class="illustration" :src="resetPassword" />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
     <UnauthFooter />
-  </div>
+  </b-container>
 </template>
 <script>
 import resetPassword from '~/assets/img/forgotpassword.svg'
