@@ -6,6 +6,7 @@
 </template>
 <script>
 export default {
+  name: 'Form',
   props: {
     title: {
       type: String,
