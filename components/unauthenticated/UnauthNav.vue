@@ -11,6 +11,9 @@
             <b-nav-item href="#">About</b-nav-item>
             <b-nav-item href="#">Pricing</b-nav-item>
             <b-nav-item href="#">Customers</b-nav-item>
+            <b-nav-item href="https://blog.profaily.com?source=home"
+              >Blog</b-nav-item
+            >
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
