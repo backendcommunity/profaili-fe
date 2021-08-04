@@ -2,7 +2,10 @@
   <b-container fluid class="pl-md-4 pr-md-5">
     <div class="nav-links">
       <b-navbar toggleable="lg" type="light" class="nav">
-        <b-navbar-brand class="brand" href="/">{{ name }}</b-navbar-brand>
+        <b-navbar-brand class="brand" href="/">
+          <Logo />
+          <!-- {{ name }} -->
+        </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
