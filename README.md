@@ -1,4 +1,4 @@
-# profaili
+# profaily
 
 ## Build Setup
 

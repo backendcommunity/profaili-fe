@@ -12,7 +12,7 @@
             />
             <UnauthButton>Recover Password</UnauthButton>
             <p class="mt-4">
-              New to Profaili?
+              New to Profaily?
               <nuxt-link to="/register">Create account</nuxt-link>
             </p>
           </form>

@@ -19,7 +19,7 @@
       <nuxt-link class="mt-3" to="/forgot">Forgot Password?</nuxt-link>
       <UnauthButton ref="loginbtn" type="submit">Login</UnauthButton>
       <p class="mt-4">
-        New to Profaili?
+        New to Profaily?
         <nuxt-link to="/register">Create account</nuxt-link>
       </p>
     </form>
