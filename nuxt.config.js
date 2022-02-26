@@ -46,7 +46,13 @@ export default {
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: true,
+   components: [
+    '~/components',
+    { path: '~/components/unauthenticated/form', prefix: '' },
+    { path: '~/components/unauthenticated', prefix: '' },
+    { path: '~/components/dashboard', prefix: '' },
+    { path: '~/components/', prefix: '' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
