@@ -15,6 +15,9 @@
         placeholder="Name"
         required
       />
+      <div hidden="true">
+        <input type="hidden" name="tags" value="4051637" />
+      </div>
       <em>{{ errors.email }}</em>
       <UnauthInput
         v-model="user.email"
